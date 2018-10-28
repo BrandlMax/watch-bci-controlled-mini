@@ -1,0 +1,6 @@
+framework module Pods_MiniControllerApp {
+  umbrella header "Pods-MiniControllerApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
