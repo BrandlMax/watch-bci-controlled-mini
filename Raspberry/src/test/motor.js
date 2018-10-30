@@ -1,16 +1,40 @@
-const Gpio = require('pigpio').Gpio;
-const Motor = new Gpio(12, {mode: Gpio.OUTPUT});
+var five = require("johnny-five");
+var Raspi = require("raspi-io");
 
-let pulseWidth = 1000;
-let increment = 100;
+var board = new five.Board({
+  io: new Raspi()
+});
 
-setInterval(() => {
-  Motor.servoWrite(pulseWidth);
+board.on("ready", function() {
+  let motor = new five.Motor(['P1-12', 'P1-16', 'P1-18']);
+  let lenkung = new five.Motor(['P1-33', 'P1-38', 'P1-40']);
 
-  pulseWidth += increment;
-  if (pulseWidth >= 2000) {
-    increment = -100;
-  } else if (pulseWidth <= 1000) {
-    increment = 100;
-  }
-}, 1000);
+  lenkung.stop();
+  lenkung.start(0);
+
+  motor.stop();
+  motor.start(0);
+
+
+  board.wait(5000, function () {
+    motor.forward(255);
+    lenkung.forward(255);
+    console.log('forward');
+  });
+
+  board.wait(15000, function () {
+    lenkung.reverse(255);
+    motor.reverse(255);
+    console.log('reverse');
+  });
+
+
+  board.wait(20000, function () {
+    lenkung.stop();
+    motor.stop();
+    console.log('reverse');
+  });
+
+
+});
+

@@ -10,7 +10,7 @@ import WatchKit
 import Foundation
 import SocketIO
 
-let manager = SocketManager(socketURL: URL(string: "http://10.100.50.13:3000")!, config: [.log(true), .compress])
+let manager = SocketManager(socketURL: URL(string: "http://192.168.0.24:3000")!, config: [.log(true), .compress])
 let socket = manager.defaultSocket
 
 class InterfaceController: WKInterfaceController {
