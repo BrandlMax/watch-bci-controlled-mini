@@ -8,17 +8,12 @@
 
 import WatchKit
 import Foundation
-
 import SocketIO
-
-import WatchConnectivity
 
 let manager = SocketManager(socketURL: URL(string: "http://10.100.50.13:3000")!, config: [.log(true), .compress])
 let socket = manager.defaultSocket
 
-class InterfaceController: WKInterfaceController, WCSessionDelegate {
-    
-    var session : WCSession!
+class InterfaceController: WKInterfaceController {
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -29,10 +24,10 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        print("--------------**************😸*************---------------")
+        print("--------------**************⌚️*************---------------")
         
         // SOCKET
-        socket.on(clientEvent: .connect) {data, ack in
+        socket.on(clientEvent: .connect) {  data, ack in
             print("socket connected")
         }
         
@@ -50,15 +45,6 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
             print(response, err)
             
         }.resume()
-        
-        //CONNECTIVITY
-//        if WCSession.isSupported() {
-//            session = WCSession.default
-//            session.delegate = self
-//            session.activate()
-//        }
-        
-        
     }
     
     override func didDeactivate() {
@@ -66,24 +52,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         super.didDeactivate()
     }
     
-    
-    // CONNECTIVITY
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        
-    }
-    
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
-        
-        
-        let message = message["message"] as! String
-        print(message)
-        
-        replyHandler(["msg":"successfully sent from iPhone"])
-        
-    }
-    
     // UI
-
     @IBAction func pressedSpeed() {
         print("Speed")
     }
