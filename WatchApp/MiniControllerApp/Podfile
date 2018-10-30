@@ -3,3 +3,7 @@ use_frameworks!
 target 'MiniControllerApp' do
     pod 'Socket.IO-Client-Swift', '~> 13.3.0'
 end
+
+target 'MiniControllerApp WatchKit Extension' do
+    pod 'Socket.IO-Client-Swift', '~> 13.3.0'
+end

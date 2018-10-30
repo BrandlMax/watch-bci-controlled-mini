@@ -10,7 +10,7 @@ import UIKit
 import SocketIO
 import WatchConnectivity
 
-let manager = SocketManager(socketURL: URL(string: "http://192.168.0.24:3000")!, config: [.log(true), .compress])
+let manager = SocketManager(socketURL: URL(string: "http://10.100.50.13:3000")!, config: [.log(true), .compress])
 let socket = manager.defaultSocket
 
 class ViewController: UIViewController, WCSessionDelegate {
@@ -32,10 +32,6 @@ class ViewController: UIViewController, WCSessionDelegate {
             session.activate()
             
             watchConnectionStatus()
-        }
-        
-        while !session.isPaired {
-             session.activate()
         }
         
         // SOCKET

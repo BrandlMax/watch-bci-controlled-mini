@@ -9,7 +9,12 @@
 import WatchKit
 import Foundation
 
+import SocketIO
+
 import WatchConnectivity
+
+let manager = SocketManager(socketURL: URL(string: "http://10.100.50.13:3000")!, config: [.log(true), .compress])
+let socket = manager.defaultSocket
 
 class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
@@ -24,13 +29,35 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        print("--------------**************😸*************---------------")
+        
+        // SOCKET
+        socket.on(clientEvent: .connect) {data, ack in
+            print("socket connected")
+        }
+        
+        socket.on("test") { data, ack in
+            print(data)
+            socket.emit("test Watch", ["amount": 100])
+        }
+        
+        socket.connect()
+        
+        let url = URLRequest(url: URL(string: "http://10.100.50.13:3000")!)
+        let session = URLSession.shared
+        session.dataTask(with: url){data, response, err in
+            
+            print(response, err)
+            
+        }.resume()
         
         //CONNECTIVITY
-        if WCSession.isSupported() {
-            session = WCSession.default
-            session.delegate = self
-            session.activate()
-        }
+//        if WCSession.isSupported() {
+//            session = WCSession.default
+//            session.delegate = self
+//            session.activate()
+//        }
+        
         
     }
     
