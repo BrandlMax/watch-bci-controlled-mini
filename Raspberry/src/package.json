@@ -7,7 +7,6 @@
     "express": "^4.16.4",
     "johnny-five": "^1.0.0",
     "pi-motor": "^0.0.1",
-    "pigpio": "^1.1.4",
     "raspi": "^5.0.2",
     "raspi-io": "^9.0.0",
     "socket.io": "^2.1.1"

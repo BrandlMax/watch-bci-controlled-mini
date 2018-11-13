@@ -1301,7 +1301,7 @@ pi-motor@^0.0.1:
     async "0.1.x"
     pi-gpio "0.0.x"
 
-pigpio@^1.0.0, pigpio@^1.1.4:
+pigpio@^1.0.0:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/pigpio/-/pigpio-1.1.4.tgz#81f009daa9f6d293c1aba551bd4a84ec2fdae0f0"
   integrity sha512-ptNt/6i/WSSXJcvZ0IdnAsAIvK+31/3OtiYTm0vRQGVxmByLQfbVqGzU669Adh7ZPs2wmQopIo0v//QWFZQjFg==

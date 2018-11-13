@@ -6,15 +6,14 @@ var board = new five.Board({
 });
 
 board.on("ready", function() {
-  let motor = new five.Motor(['P1-12', 'P1-16', 'P1-18']);
-  let lenkung = new five.Motor(['P1-33', 'P1-38', 'P1-40']);
+  let motor = new five.Motor(['P1-32', 'P1-38', 'P1-36']);
+  let lenkung = new five.Motor(['P1-33', 'P1-37', 'P1-35']);
 
-  lenkung.stop();
-  lenkung.start(0);
+  // lenkung.stop();
+  // lenkung.start(0);
 
-  motor.stop();
-  motor.start(0);
-
+  // motor.stop();
+  // motor.start(0);
 
   board.wait(5000, function () {
     motor.forward(255);
@@ -28,13 +27,10 @@ board.on("ready", function() {
     console.log('reverse');
   });
 
-
   board.wait(20000, function () {
     lenkung.stop();
     motor.stop();
-    console.log('reverse');
+    console.log('Stop');
   });
 
-
 });
-

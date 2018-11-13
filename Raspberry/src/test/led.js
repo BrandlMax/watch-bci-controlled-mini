@@ -7,5 +7,15 @@ var board = new five.Board({
 
 board.on("ready", function() {
   var led = new five.Led("P1-22");
-  led.on();
+  led.off();
+
+  board.wait(3000, function () {
+    console.log('ON');
+    led.on();
+  });
+
+  board.wait(20000, function () {
+    console.log('OFF');
+    led.off();
+  });
 });

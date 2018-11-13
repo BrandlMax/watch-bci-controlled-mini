@@ -24,11 +24,7 @@ class ViewController: UIViewController {
         // SOCKET
         socket.on(clientEvent: .connect) {data, ack in
             print("socket connected")
-        }
-        
-        socket.on("test") { data, ack in
-                print(data)
-                socket.emit("test2", ["amount": 100])
+            // socket.emit("speed", 255)
         }
         
         socket.connect()

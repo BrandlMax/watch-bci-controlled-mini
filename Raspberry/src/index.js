@@ -22,16 +22,18 @@ var board = new five.Board({
 });
 
 board.on("ready", function() {
-    let motor = new five.Motor(['P1-12', 'P1-16', 'P1-18']);
-    let lenkung = new five.Motor(['P1-33', 'P1-38', 'P1-40']);
-    let lights = new five.Led('P1-11');
+    let motor = new five.Motor(['P1-32', 'P1-38', 'P1-36']);
+    let lenkung = new five.Motor(['P1-33', 'P1-37', 'P1-35']);
+    let lights = new five.Led('P1-22');
+    var horn = new five.Piezo('P1-16');
 
-    lights.blink(500);
+    board.repl.inject({
+        piezo: horn
+    });
 
-    // SETUP
+    // SETUP / RESET
     lenkung.stop();
     lenkung.start(0);
-
     motor.stop();
     motor.start(0);
 
@@ -43,28 +45,37 @@ board.on("ready", function() {
             if(speed >= 0){
                 motor.forward(speed);
             } else{
-                motor.reverse(speed*-1)
+                motor.reverse(speed*-1);
             }
         })
 
         socket.on('direction', function(direction){
             console.log('direction', direction);
-            
+
             if(direction >= 0){
                 lenkung.forward(direction);
             } else{
-                lenkung.reverse(direction*-1)
+                lenkung.reverse(direction*-1);
             }
         })
 
         socket.on('light', function(light){
             console.log('light', light);
-
+            if(light){
+                lights.on();
+            }else{
+                light.off();
+            }
+            
         })
 
-        socket.on('horn', function(horn){
-            console.log('horn', horn);
-
+        socket.on('horn', function(sound){
+            console.log('horn', sound);
+            horn.play({
+                song: "E4 G4 - A4 A4 - A4 B4 - C5 C5 - C5 D5 B4 B4 - A4 G4 A4 - E4 G4 A4 A4 - A4 B4 C5 C5 - C5 D5 B4 B4 - A4 G4 A4 ",
+                beats: 1 / 4,
+                tempo: 80
+            });
         })
 
     });

@@ -17,7 +17,6 @@ class InterfaceController: WKInterfaceController {
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
         // Configure interface objects here.
     }
     
@@ -33,18 +32,10 @@ class InterfaceController: WKInterfaceController {
         
         socket.on("test") { data, ack in
             print(data)
-            socket.emit("test Watch", ["amount": 100])
+            
         }
         
         socket.connect()
-        
-        let url = URLRequest(url: URL(string: "http://10.100.50.13:3000")!)
-        let session = URLSession.shared
-        session.dataTask(with: url){data, response, err in
-            
-            print(response, err)
-            
-        }.resume()
     }
     
     override func didDeactivate() {
@@ -53,7 +44,30 @@ class InterfaceController: WKInterfaceController {
     }
     
     // UI
-    @IBAction func pressedSpeed() {
-        print("Speed")
+    @IBAction func direction_left() {
+        socket.emit("direction", -255)
     }
+    
+    @IBAction func direction_right() {
+        socket.emit("direction", 255)
+    }
+    
+    @IBAction func speed_forward() {
+        socket.emit("speed", 255)
+    }
+
+    @IBAction func speed_backwards() {
+        socket.emit("speed", -255)
+    }
+    
+    @IBAction func horn() {
+        socket.emit("horn", true)
+    }
+    
+    @IBAction func light() {
+        socket.emit("light", true)
+    }
+    
+    
+    
 }
