@@ -10,11 +10,17 @@ import WatchKit
 import Foundation
 import SocketIO
 
-let manager = SocketManager(socketURL: URL(string: "http://192.168.0.24:3000")!, config: [.log(true), .compress])
+let manager = SocketManager(socketURL: URL(string: "http://mini.local:8080")!, config: [.log(true), .compress])
 let socket = manager.defaultSocket
+let streamUrl = "http://mini.local:1337/stream.mjpg"
+
+var lightState = false
+var speedState = 0
+let dirState = 0
 
 class InterfaceController: WKInterfaceController {
-
+    @IBOutlet weak var WKLifeStream: WKInterfaceImage!
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         // Configure interface objects here.
@@ -36,6 +42,9 @@ class InterfaceController: WKInterfaceController {
         }
         
         socket.connect()
+        
+        // Stream
+        _ = self.WKLifeStream.setImageWithUrl(url: streamUrl, scale: 1.0)
     }
     
     override func didDeactivate() {
@@ -43,21 +52,22 @@ class InterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
     
+    
     // UI
     @IBAction func direction_left() {
-        socket.emit("direction", -255)
+        socket.emit("direction", -100)
     }
     
     @IBAction func direction_right() {
-        socket.emit("direction", 255)
+        socket.emit("direction", 100)
     }
     
     @IBAction func speed_forward() {
-        socket.emit("speed", 255)
+        socket.emit("speed", 100)
     }
 
     @IBAction func speed_backwards() {
-        socket.emit("speed", -255)
+        socket.emit("speed", -100)
     }
     
     @IBAction func horn() {
@@ -65,9 +75,30 @@ class InterfaceController: WKInterfaceController {
     }
     
     @IBAction func light() {
-        socket.emit("light", true)
+        lightState = !lightState
+        socket.emit("light", lightState)
     }
     
+}
+
+public extension WKInterfaceImage {
     
-    
+    public func setImageWithUrl(url:String, scale: CGFloat = 1.0) -> WKInterfaceImage? {
+        
+        let reqUrl = NSURL(string: url)! as URL
+        var req = URLRequest(url: reqUrl)
+        req.cachePolicy = URLRequest.CachePolicy.reloadIgnoringLocalCacheData
+        
+        URLSession.shared.dataTask(with: req) { data, response, error in
+            if (data != nil && error == nil) {
+                let image = UIImage(data: data!, scale: scale)
+                
+                DispatchQueue.main.async {
+                    self.setImage(image)
+                }
+            }
+            }.resume()
+        
+        return self
+    }
 }

@@ -13,7 +13,7 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="MiniControllerApp_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <homekitCamera width="136" height="86" alignment="left" id="C26-ve-HzZ"/>
+                        <imageView height="86" alignment="left" id="Hpd-XF-ucc"/>
                         <group width="1" alignment="left" id="865-CA-drY">
                             <items>
                                 <button width="0.5" alignment="left" title="←" id="VvN-DK-LAg">
@@ -57,9 +57,12 @@
                             </items>
                         </group>
                     </items>
+                    <connections>
+                        <outlet property="WKLifeStream" destination="Hpd-XF-ucc" id="PKX-6Z-OTy"/>
+                    </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="137" y="440"/>
+            <point key="canvasLocation" x="137" y="463"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
