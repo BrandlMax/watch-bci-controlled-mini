@@ -1,20 +1,29 @@
+#python3 index.py
 import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 from time import sleep # Import the sleep function from the time module
 from aiohttp import web
 import socketio
 
-from l293d import driver
+from modules import Lights
+from modules import Motor
+from modules import Lenkung
+from modules import Horn
 
 # SETUP GPIO
 GPIO.cleanup() 
 GPIO.setwarnings(True) 
 GPIO.setmode(GPIO.BOARD) # Use physical pin numbering
+GPIO.setwarnings(False)
+
+# SETUP HORN
+Horn.setup()
 
 # SETUP LED
-GPIO.setup(22, GPIO.OUT, initial=GPIO.LOW) # Set pin 8 to be an output pin and set initial value to low (off)
+Lights.setup()
 
-#SETUP MOTOR
-motor = driver.DC(38, 32, 36)
+#SETUP MOTOR & LENKUNG
+Motor.setup()
+Lenkung.setup()
 
 # SETUP SOCKET
 sio = socketio.AsyncServer()
@@ -28,30 +37,41 @@ def connect(sid, environ):
 @sio.on('speed')
 async def changeSpeed(sid, data):
     print("changeSpeed ", data)
-    data = int(data)
-    if data >= 0:
-        motor.clockwise(speed=data)
+    data = float(data)
+    print("DATA", data)
+    if data > 0:
+        Motor.geschwindigkeit(data)
+        Motor.clockwise()
     else:
         data = data * -1
-        print(data)
-        motor.anticlockwise(speed=data)
-
+        Motor.geschwindigkeit(data)
+        Motor.counter_clockwise()
 
 @sio.on('direction')
 async def changeDirection(sid, data):
     print("changeDirection ", data)
+    data = float(data)
+    print("DATA", data)
+    if data > 0:
+        Lenkung.winkel(data)
+        Lenkung.right()
+    else:
+        data = data * -1
+        Lenkung.winkel(data)
+        Lenkung.left()
 
 @sio.on('horn')
 async def playHorn(sid, data):
     print("playHorn ", data)
+    await Horn.playSong()
 
 @sio.on('light')
 async def turnLight(sid, data):
     print("turnLight ", data)
     if data:
-        GPIO.output(22, GPIO.HIGH)
+        Lights.on()
     else:
-        GPIO.output(22, GPIO.LOW)
+        Lights.off()
 
 @sio.on('disconnect')
 def disconnect(sid):
