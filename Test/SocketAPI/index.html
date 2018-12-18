@@ -5,10 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Socket Test</title>
+    <style>
+        img {
+            display: block;
+            width: auto;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
 <div id="app">
 
+    <img src="http://mini.local:1337/stream.mjpg" width="640" height="480">
     <input type="range" name="speed" min="-100" max="100" v-model="speed" @change="changeSpeed">
     <label for="volume">Speed</label>
 
@@ -26,7 +34,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.dev.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script>
-    const socket = io('http://raspberrypi.local:8080');
+    const socket = io('http://mini.local:8080');
     var app = new Vue({
         el: '#app',
         data: {
