@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		5B653F79C2EF7C757467FEAA /* Pods_MiniControllerApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E165D653F34C6B12928AED /* Pods_MiniControllerApp.framework */; };
+		9770F3B321CFE4890066D190 /* Pods_MiniControllerApp_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9770F3B221CFE4890066D190 /* Pods_MiniControllerApp_WatchKit_Extension.framework */; };
+		9770F3C521CFF39C0066D190 /* GyroInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9770F3C421CFF39C0066D190 /* GyroInterface.swift */; };
+		9770F3C621CFF39C0066D190 /* GyroInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9770F3C421CFF39C0066D190 /* GyroInterface.swift */; };
+		9770F3C821D23E030066D190 /* TouchInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9770F3C721D23E030066D190 /* TouchInterface.swift */; };
+		9770F3CA21D258330066D190 /* MiniInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9770F3C921D258330066D190 /* MiniInterfaceController.swift */; };
 		97FCE30B217644BE001A21F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FCE30A217644BE001A21F0 /* AppDelegate.swift */; };
 		97FCE30D217644BE001A21F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FCE30C217644BE001A21F0 /* ViewController.swift */; };
 		97FCE310217644BE001A21F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97FCE30E217644BE001A21F0 /* Main.storyboard */; };
@@ -23,7 +28,6 @@
 		97FCE346217644C1001A21F0 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FCE345217644C1001A21F0 /* ExtensionDelegate.swift */; };
 		97FCE348217644C1001A21F0 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FCE347217644C1001A21F0 /* NotificationController.swift */; };
 		97FCE34A217644C1001A21F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97FCE349217644C1001A21F0 /* Assets.xcassets */; };
-		ADAA558F81E3B275D3AA901A /* Pods_MiniControllerApp_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D4F3C075F057D7DD35BE41 /* Pods_MiniControllerApp_WatchKit_Extension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +90,10 @@
 		293954FAF34D286D082909B9 /* Pods-MiniControllerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniControllerApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiniControllerApp/Pods-MiniControllerApp.debug.xcconfig"; sourceTree = "<group>"; };
 		4C50AB4A5999BCBFE51F7270 /* Pods-MiniControllerApp WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniControllerApp WatchKit Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiniControllerApp WatchKit Extension/Pods-MiniControllerApp WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		75D4F3C075F057D7DD35BE41 /* Pods_MiniControllerApp_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiniControllerApp_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9770F3B221CFE4890066D190 /* Pods_MiniControllerApp_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_MiniControllerApp_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9770F3C421CFF39C0066D190 /* GyroInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GyroInterface.swift; sourceTree = "<group>"; };
+		9770F3C721D23E030066D190 /* TouchInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchInterface.swift; sourceTree = "<group>"; };
+		9770F3C921D258330066D190 /* MiniInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniInterfaceController.swift; sourceTree = "<group>"; };
 		97BE0F56218791F3004D599A /* SocketIO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SocketIO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97BE0F5821879229004D599A /* SocketIO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SocketIO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97BE0F5B2187948E004D599A /* SocketIO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SocketIO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,7 +160,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADAA558F81E3B275D3AA901A /* Pods_MiniControllerApp_WatchKit_Extension.framework in Frameworks */,
+				9770F3B321CFE4890066D190 /* Pods_MiniControllerApp_WatchKit_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +181,7 @@
 		8AB5A640C980E895CF34E9AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9770F3B221CFE4890066D190 /* Pods_MiniControllerApp_WatchKit_Extension.framework */,
 				97BE0F5B2187948E004D599A /* SocketIO.framework */,
 				97BE0F5821879229004D599A /* SocketIO.framework */,
 				97BE0F56218791F3004D599A /* SocketIO.framework */,
@@ -258,6 +267,9 @@
 				97FCE349217644C1001A21F0 /* Assets.xcassets */,
 				97FCE34B217644C1001A21F0 /* Info.plist */,
 				97FCE34C217644C1001A21F0 /* PushNotificationPayload.apns */,
+				9770F3C421CFF39C0066D190 /* GyroInterface.swift */,
+				9770F3C721D23E030066D190 /* TouchInterface.swift */,
+				9770F3C921D258330066D190 /* MiniInterfaceController.swift */,
 			);
 			path = "MiniControllerApp WatchKit Extension";
 			sourceTree = "<group>";
@@ -556,6 +568,7 @@
 			files = (
 				97FCE30D217644BE001A21F0 /* ViewController.swift in Sources */,
 				97FCE30B217644BE001A21F0 /* AppDelegate.swift in Sources */,
+				9770F3C521CFF39C0066D190 /* GyroInterface.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,8 +592,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9770F3CA21D258330066D190 /* MiniInterfaceController.swift in Sources */,
+				9770F3C621CFF39C0066D190 /* GyroInterface.swift in Sources */,
 				97FCE348217644C1001A21F0 /* NotificationController.swift in Sources */,
 				97FCE346217644C1001A21F0 /* ExtensionDelegate.swift in Sources */,
+				9770F3C821D23E030066D190 /* TouchInterface.swift in Sources */,
 				97FCE344217644C1001A21F0 /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

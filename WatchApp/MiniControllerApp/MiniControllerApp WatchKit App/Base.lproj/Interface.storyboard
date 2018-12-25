@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14460.31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14460.31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="95d-Xb-x19">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,7 +13,7 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="MiniControllerApp_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <imageView height="86" alignment="left" id="Hpd-XF-ucc"/>
+                        <imageView height="91" alignment="left" id="ygN-jv-CEh"/>
                         <group width="1" alignment="left" id="865-CA-drY">
                             <items>
                                 <button width="0.5" alignment="left" title="←" id="VvN-DK-LAg">
@@ -58,11 +58,116 @@
                         </group>
                     </items>
                     <connections>
-                        <outlet property="WKLifeStream" destination="Hpd-XF-ucc" id="PKX-6Z-OTy"/>
+                        <outlet property="ImageViewStream" destination="ygN-jv-CEh" id="QIU-Px-V2W"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="137" y="463"/>
+            <point key="canvasLocation" x="-386" y="858"/>
+        </scene>
+        <!--Gyro Interface-->
+        <scene sceneID="YsU-J1-A6T">
+            <objects>
+                <controller id="EX0-O1-fQh" customClass="GyroInterface" customModule="MiniControllerApp_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label width="136" height="141" alignment="left" text="Label" textAlignment="left" numberOfLines="10" id="eeW-Ey-4kh"/>
+                    </items>
+                    <connections>
+                        <outlet property="GyroLabel" destination="eeW-Ey-4kh" id="TGJ-pN-roX"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="216" y="849"/>
+        </scene>
+        <!--Touch Interface-->
+        <scene sceneID="w1g-0o-0Yb">
+            <objects>
+                <controller id="ABG-8h-6Nv" customClass="TouchInterface" customModule="MiniControllerApp_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label alignment="left" text="Label" id="VYk-bF-o7O"/>
+                    </items>
+                    <menu key="menu" id="foV-Mm-xoZ">
+                        <items>
+                            <menuItem title="Licht" icon="share" id="1tB-qj-6fb"/>
+                            <menuItem title="Horn" icon="speaker" id="KIc-4S-ApV"/>
+                            <menuItem title="Stop" icon="block" id="YHb-3Z-WGu"/>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="speedLabel" destination="VYk-bF-o7O" id="Ub0-oD-iHl"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-133" y="825"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="y4p-TS-5KW">
+            <objects>
+                <controller id="95d-Xb-x19">
+                    <items>
+                        <button width="1" alignment="left" title="Mini" id="Ta1-ym-6TG">
+                            <connections>
+                                <segue destination="F7h-NF-Zr2" kind="push" id="TV5-nd-0ao"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="v1" id="g7W-JC-rsa">
+                            <connections>
+                                <segue destination="AgC-eL-Hgc" kind="push" id="spS-aD-lGl"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Gyro" id="Xo1-yu-aeW">
+                            <connections>
+                                <segue destination="EX0-O1-fQh" kind="push" id="KIi-RV-82n"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Touch" id="vep-W2-lKq">
+                            <connections>
+                                <segue destination="ABG-8h-6Nv" kind="push" id="QQj-dl-tee"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-147" y="426"/>
+        </scene>
+        <!--Mini Interface Controller-->
+        <scene sceneID="N8C-Aw-caK">
+            <objects>
+                <controller id="F7h-NF-Zr2" customClass="MiniInterfaceController" customModule="MiniControllerApp_WatchKit_Extension">
+                    <items>
+                        <imageView height="119" alignment="left" id="rkI-jE-4hC"/>
+                        <group width="1" alignment="left" id="qdk-j9-ztO">
+                            <items>
+                                <label width="63" alignment="left" text="0 km/h" id="LW4-RF-gLe"/>
+                                <label width="68" alignment="left" text="⬆️" textAlignment="right" id="e8e-mi-Og9"/>
+                            </items>
+                        </group>
+                    </items>
+                    <menu key="menu" id="569-g4-XKX">
+                        <items>
+                            <menuItem title="Light" icon="share" id="KgQ-6H-7pZ">
+                                <connections>
+                                    <action selector="turnLightOn" destination="F7h-NF-Zr2" id="LBr-gj-7o6"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Horn" icon="speaker" id="DPQ-p8-FqX">
+                                <connections>
+                                    <action selector="horn" destination="F7h-NF-Zr2" id="R5e-FW-LAI"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Stop" icon="block" id="UOX-i7-P45">
+                                <connections>
+                                    <action selector="StopMotors" destination="F7h-NF-Zr2" id="bgI-Fx-MGf"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="dirLabel" destination="e8e-mi-Og9" id="qiL-r7-Iqz"/>
+                        <outlet property="speedLabel" destination="LW4-RF-gLe" id="XjN-zO-619"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="127" y="425"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -79,21 +184,21 @@
                     </connections>
                 </notificationController>
             </objects>
-            <point key="canvasLocation" x="-275" y="943"/>
+            <point key="canvasLocation" x="-203" y="1504"/>
         </scene>
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
             <objects>
                 <controller id="4sK-HA-Art" customClass="NotificationController" customModule="MiniControllerApp_WatchKit_App" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="55" y="943"/>
+            <point key="canvasLocation" x="127" y="1504"/>
         </scene>
         <!--Notification Controller-->
         <scene sceneID="Niz-AI-uX2">
             <objects>
                 <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="MiniControllerApp_WatchKit_App" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="106" y="1353"/>
+            <point key="canvasLocation" x="178" y="1914"/>
         </scene>
     </scenes>
 </document>
