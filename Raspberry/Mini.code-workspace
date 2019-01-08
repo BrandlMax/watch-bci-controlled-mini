@@ -2,7 +2,12 @@
 	"folders": [
 		{
 			"path": "src"
+		},
+		{
+			"path": ".homebridge"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"terminal.integrated.shell.osx": "/bin/bash"
+	}
 }
