@@ -162,6 +162,7 @@
                         </items>
                     </menu>
                     <connections>
+                        <outlet property="StreamImage" destination="rkI-jE-4hC" id="uBc-VZ-p4Y"/>
                         <outlet property="dirLabel" destination="e8e-mi-Og9" id="qiL-r7-Iqz"/>
                         <outlet property="speedLabel" destination="LW4-RF-gLe" id="XjN-zO-619"/>
                     </connections>

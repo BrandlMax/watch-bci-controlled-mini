@@ -29,8 +29,12 @@ let motionManager = CMMotionManager()
 
 class MiniInterfaceController: WKInterfaceController {
 
+    @IBOutlet weak var StreamImage: WKInterfaceImage!
     @IBOutlet weak var speedLabel: WKInterfaceLabel!
     @IBOutlet weak var dirLabel: WKInterfaceLabel!
+    
+    var stream: MJPEGStreamWatch!
+    var url: URL?
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -44,7 +48,6 @@ class MiniInterfaceController: WKInterfaceController {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        
         
         if(!CONNECTED){
             
@@ -91,6 +94,26 @@ class MiniInterfaceController: WKInterfaceController {
         
         socket.disconnect()
         CONNECTED = false
+    }
+    
+    override func didAppear() {
+        // Set the ImageView to the stream object
+        stream = MJPEGStreamWatch(imageView: StreamImage)
+        // Start Loading Indicator
+        stream.didStartLoading = { [unowned self] in
+            // self.loadingIndicator.startAnimating()
+            print("didStartLoading!")
+        }
+        // Stop Loading Indicator
+        stream.didFinishLoading = { [unowned self] in
+            // self.loadingIndicator.stopAnimating()
+            print("didFinishLoading!")
+        }
+        
+        // Your stream url should be here !
+        let url = URL(string: "http://mini.local:1337/stream.mjpg")
+        stream.contentURL = url
+        stream.play() // Play the stream
     }
 
     @IBAction func turnLightOn() {

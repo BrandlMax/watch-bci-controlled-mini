@@ -13,6 +13,8 @@
 		9770F3C621CFF39C0066D190 /* GyroInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9770F3C421CFF39C0066D190 /* GyroInterface.swift */; };
 		9770F3C821D23E030066D190 /* TouchInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9770F3C721D23E030066D190 /* TouchInterface.swift */; };
 		9770F3CA21D258330066D190 /* MiniInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9770F3C921D258330066D190 /* MiniInterfaceController.swift */; };
+		97E597F921E51BD10021ECFE /* MJPEGStreamLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E597F821E51BD10021ECFE /* MJPEGStreamLib.swift */; };
+		97E597FC21E55B200021ECFE /* MJPEGStreamWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E597FB21E55B200021ECFE /* MJPEGStreamWatch.swift */; };
 		97FCE30B217644BE001A21F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FCE30A217644BE001A21F0 /* AppDelegate.swift */; };
 		97FCE30D217644BE001A21F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FCE30C217644BE001A21F0 /* ViewController.swift */; };
 		97FCE310217644BE001A21F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97FCE30E217644BE001A21F0 /* Main.storyboard */; };
@@ -97,6 +99,8 @@
 		97BE0F56218791F3004D599A /* SocketIO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SocketIO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97BE0F5821879229004D599A /* SocketIO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SocketIO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97BE0F5B2187948E004D599A /* SocketIO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SocketIO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		97E597F821E51BD10021ECFE /* MJPEGStreamLib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MJPEGStreamLib.swift; sourceTree = "<group>"; };
+		97E597FB21E55B200021ECFE /* MJPEGStreamWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MJPEGStreamWatch.swift; sourceTree = "<group>"; };
 		97FCE307217644BE001A21F0 /* MiniControllerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniControllerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97FCE30A217644BE001A21F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97FCE30C217644BE001A21F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				97FCE30A217644BE001A21F0 /* AppDelegate.swift */,
+				97E597F821E51BD10021ECFE /* MJPEGStreamLib.swift */,
 				97FCE30C217644BE001A21F0 /* ViewController.swift */,
 				97FCE30E217644BE001A21F0 /* Main.storyboard */,
 				97FCE311217644C0001A21F0 /* Assets.xcassets */,
@@ -270,6 +275,7 @@
 				9770F3C421CFF39C0066D190 /* GyroInterface.swift */,
 				9770F3C721D23E030066D190 /* TouchInterface.swift */,
 				9770F3C921D258330066D190 /* MiniInterfaceController.swift */,
+				97E597FB21E55B200021ECFE /* MJPEGStreamWatch.swift */,
 			);
 			path = "MiniControllerApp WatchKit Extension";
 			sourceTree = "<group>";
@@ -567,6 +573,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				97FCE30D217644BE001A21F0 /* ViewController.swift in Sources */,
+				97E597F921E51BD10021ECFE /* MJPEGStreamLib.swift in Sources */,
 				97FCE30B217644BE001A21F0 /* AppDelegate.swift in Sources */,
 				9770F3C521CFF39C0066D190 /* GyroInterface.swift in Sources */,
 			);
@@ -594,6 +601,7 @@
 			files = (
 				9770F3CA21D258330066D190 /* MiniInterfaceController.swift in Sources */,
 				9770F3C621CFF39C0066D190 /* GyroInterface.swift in Sources */,
+				97E597FC21E55B200021ECFE /* MJPEGStreamWatch.swift in Sources */,
 				97FCE348217644C1001A21F0 /* NotificationController.swift in Sources */,
 				97FCE346217644C1001A21F0 /* ExtensionDelegate.swift in Sources */,
 				9770F3C821D23E030066D190 /* TouchInterface.swift in Sources */,

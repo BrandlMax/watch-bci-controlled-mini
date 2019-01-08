@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,41 +17,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⌚️🚗" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxJ-nJ-LkN">
-                                <rect key="frame" x="164.5" y="323" width="46" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzF-ds-NEY">
-                                <rect key="frame" x="16" y="352" width="343" height="295"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNy-YB-MmT">
-                                <rect key="frame" x="169" y="189" width="37" height="30"/>
-                                <state key="normal" title="TEST"/>
-                                <connections>
-                                    <action selector="sendTest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j6T-zt-Jvl"/>
-                                </connections>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lWd-ta-HFe">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="xxJ-nJ-LkN" firstAttribute="top" secondItem="rNy-YB-MmT" secondAttribute="bottom" constant="104" id="2Sf-OO-eq4"/>
-                            <constraint firstItem="xxJ-nJ-LkN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Zd-Gz-xzJ"/>
-                            <constraint firstItem="bzF-ds-NEY" firstAttribute="top" secondItem="xxJ-nJ-LkN" secondAttribute="bottom" constant="8" id="Mn8-ma-6Dd"/>
-                            <constraint firstItem="bzF-ds-NEY" firstAttribute="leading" secondItem="Uee-0j-aNJ" secondAttribute="leading" constant="16" id="SaQ-KV-hXv"/>
-                            <constraint firstItem="xxJ-nJ-LkN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Y15-Gw-WPe"/>
-                            <constraint firstItem="Uee-0j-aNJ" firstAttribute="trailing" secondItem="bzF-ds-NEY" secondAttribute="trailing" constant="16" id="ekf-4c-GFv"/>
-                            <constraint firstItem="rNy-YB-MmT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fI7-xe-fIQ"/>
-                            <constraint firstItem="Uee-0j-aNJ" firstAttribute="bottom" secondItem="bzF-ds-NEY" secondAttribute="bottom" constant="20" id="jsE-PW-6ma"/>
+                            <constraint firstItem="lWd-ta-HFe" firstAttribute="leading" secondItem="Uee-0j-aNJ" secondAttribute="leading" id="FOB-bG-asx"/>
+                            <constraint firstItem="lWd-ta-HFe" firstAttribute="trailing" secondItem="Uee-0j-aNJ" secondAttribute="trailing" id="WYY-by-b6A"/>
+                            <constraint firstItem="lWd-ta-HFe" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="nIc-Zj-Hco"/>
+                            <constraint firstItem="lWd-ta-HFe" firstAttribute="bottom" secondItem="Uee-0j-aNJ" secondAttribute="bottom" id="uwa-Jr-bwP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Uee-0j-aNJ"/>
                     </view>
                     <connections>
-                        <outlet property="messages" destination="bzF-ds-NEY" id="dvv-sq-NM2"/>
+                        <outlet property="imageView" destination="lWd-ta-HFe" id="XXC-t5-IpM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
