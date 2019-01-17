@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mini Web / BCI Interface</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            display: block;
+            width: auto;
+            height: 100%;
+        }
+        .monitor{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .controls{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px
+        }
+        input.speedSlider{
+            transform: rotate(-90deg);
+        }
+        
+    </style>
+</head>
+<body>
+<div id="app">
+
+    <div class="monitor">
+        <img src="http://mini.local:1337/stream.mjpg" width="640" height="480">
+    </div>
+
+    <div class="controls">
+            <input class="speedSlider" type="range" name="speed" min="-100" max="100" v-model="speed" @change="changeSpeed">
+
+            <input type="range" name="direction" min="-100" max="100" v-model="direction" @change="changeDirection">
+            <br />   
+    </div>
+    <div class="controls buttons">
+        <button @click="letHorn">Horn</button>
+        <button @click="letLight">Light</button> 
+    </div>
+    <br />
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.dev.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    // SOCKET
+    let BCIsocket = io('http://localhost:80');
+    let BRAIN = null;
+    BCIsocket.on('BRAINSTREAM', (data) => {
+        BRAIN = data;
+    })
+
+    let light = false;
+    let BCItick = setInterval(()=>{
+        if(BRAIN != null){
+            if(BRAIN.command == 'neutral'){
+                socket.emit('speed', 0);
+                socket.emit('direction', 0);
+            }
+            if(BRAIN.command == 'push'){
+                socket.emit('speed', 50);
+            }
+            if(BRAIN.command == 'pull'){
+                socket.emit('speed', -50);
+            }
+            if(BRAIN.command == 'left'){
+                socket.emit('direction', -100);
+            }
+            if(BRAIN.command == 'right'){
+                socket.emit('direction', 100);
+            }
+            if(BRAIN.eyeAction == 'blink'){
+                light = !light;
+                socket.emit('light', light);
+            }
+
+        }
+    }, 500);
+
+    const socket = io('http://mini.local:8080');
+    var app = new Vue({
+        el: '#app',
+        data: {
+            speed: 0,
+            direction: 0,
+            light: false,
+            horn: false,
+        },
+        mounted: () => {
+            
+        },
+        methods: {
+            changeSpeed: function() {
+                console.log(this.speed);
+                socket.emit('speed', this.speed);
+            },
+            changeDirection: function() {
+                console.log(this.direction);
+                socket.emit('direction', this.direction);
+            },
+            letHorn: function() {
+                this.horn = !this.horn;
+                socket.emit('horn', this.horn);
+
+            },
+            letLight: function() {
+                this.light = !this.light;
+                socket.emit('light', this.light);
+            },
+        }
+    })
+
+</script>
+</body>
+</html>
