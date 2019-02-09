@@ -2,7 +2,7 @@
 
 https://vimeo.com/316283833
 
-![Apple Watch and BCI Controlled Mini](https://github.com/BrandlMax/watch-bci-controlled-mini/blob/master/images/IMG_0802.JPG)
+![Apple Watch and BCI Controlled Mini](https://github.com/BrandlMax/watch-bci-controlled-mini/blob/master/images/Mini.jpg)
 
 ## Idea
 The idea was to take an old remote controlled toy car and rebuild it so I could control it via API with my Apple Watch.
