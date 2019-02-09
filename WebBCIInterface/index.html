@@ -78,9 +78,11 @@
             }
             if(BRAIN.command == 'left'){
                 socket.emit('direction', -100);
+                socket.emit('speed', 50);
             }
             if(BRAIN.command == 'right'){
                 socket.emit('direction', 100);
+                socket.emit('speed', 50);
             }
             if(BRAIN.eyeAction == 'blink'){
                 light = !light;
