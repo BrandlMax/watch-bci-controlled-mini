@@ -13,7 +13,7 @@ hupexit() {
 trap hupexit HUP
 trap intexit INT
 
-python3 ./src/index.py &
-python3 ./src/stream.py &
+python3 /home/pi/Mini/index.py &
+python3 /home/pi/Mini/stream_mjpeg.py &
 
 wait
