@@ -2,6 +2,8 @@
 
 https://vimeo.com/316283833
 
+![Apple Watch and BCI Controlled Mini](https://github.com/BrandlMax/watch-bci-controlled-mini/blob/master/images/IMG_0802.JPG)
+
 ## Idea
 The idea was to take an old remote controlled toy car and rebuild it so I could control it via API with my Apple Watch.
 A scene from the James Bond movie Tomorrow Never Dies inspired this idea. Here Bond controls a 750 series BMW with his “Smartphone”. [https://youtu.be/W2ZbhElxeb4](https://youtu.be/W2ZbhElxeb4)
@@ -74,6 +76,7 @@ After all, I am motivated to disassemble new things and breathe new life into th
 ](https://github.com/BrandlMax/watch-bci-controlled-mini)
 
 ## Circuit Diagram
+![Apple Watch and BCI Controlled Mini](https://github.com/BrandlMax/watch-bci-controlled-mini/blob/master/images/Schaltplan.png)
 
 
 
